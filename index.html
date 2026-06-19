@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MigDigital — Empréstimos com Segurança e Rapidez</title>
+  <meta name="description" content="MigDigital: O melhor lugar para realizar seu empréstimo com segurança e rapidez. Simule agora." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+</head>
+<body>
+
+  <!-- Progress -->
+<div id="progress-bar"></div>
+ 
+<!-- Noise -->
+<div id="noise"></div>
+ 
+<!-- Cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="cursor-label"></div>
+ 
+<!-- WebGL BG -->
+<canvas id="bg-canvas"></canvas>
+ 
+  <!-- LOADER -->
+<div id="loader">
+  <div id="loader-logo-img-wrap">
+    <img src="logo.png" alt="MigDigital Logo" id="loader-logo-img">
+  </div>
+  <div class="loader-logo">
+    <span id="loader-c" style="color:#fff">MIG</span><span id="loader-s" style="color:#eba32d">DIGITAL</span>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar" id="loader-bar"></div></div>
+  <div class="loader-pct" id="loader-pct">0%</div>
+</div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-cred">MIG</span><span class="logo-sete">DIGITAL</span>
+
+      </a>
+      <ul class="nav-links">
+        <li><a href="#attendant-card">Contatar</a></li>
+        <li><a href="#credibilidade">Segurança</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="#attendant-card" class="nav-cta">Solicitar Empréstimo</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#attendant-card">Contatar</a>
+      <a href="#credibilidade">Segurança</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid" id="hero-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-particles" id="hero-particles"></div>
+    </div>
+    <div class="hero-content">
+      
+      <div class="hero-badge reveal-up no-spc-badge">
+        <span class="badge-dot"></span>
+        Empréstimo SEM consulta ao SPC e Serasa
+      </div>
+<h1 class="hero-title reveal-up">
+        <img src="logocarla.png" alt="MigDigital Valdmar Logo" style="width: clamp(300px, 35vw, 500px); height: auto;">
+      </h1>
+      <p class="hero-sub reveal-up">
+        O melhor lugar para realizar<br />seu empréstimo com <em>segurança</em> e <em>rapidez</em>.
+      </p>
+      <p class="hero-body reveal-up">
+        Processo 100% digital, aprovação ágil e condições transparentes.<br class="br-desk" />
+        Sua vida financeira, sem complicações.
+      </p>
+      <div class="hero-actions reveal-up">
+        <a href="#attendant-card" class="btn btn-primary">
+          <span>Eu quero</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#credibilidade" class="btn btn-ghost">Como funciona</a>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="stat">
+          <span class="stat-num">+50k</span>
+          <span class="stat-label">Clientes atendidos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">99%</span>
+          <span class="stat-label">Satisfação</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">+100M</span>
+          <span class="stat-label">Créditos Liberados</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-parallax-wrap">
+        <div class="parallax-element sphere-1"></div>
+        <div class="parallax-element sphere-2"></div>
+        <div class="hero-grid" id="hero-grid"></div>
+      </div>
+      <div class="hero-glow"></div>
+    </div>
+    
+    <div class="hero-container">
+      <div class="hero-text-side">
+        <div class="hero-badge reveal-up">
+          <span class="badge-dot"></span>
+          Representante Comercial Exclusiva
+        </div>
+        <h1 class="hero-title reveal-up">
+          Soluções <br><span class="text-gold">Inteligentes</span> <br>por Valdmar Santos.
+        </h1>
+        <p class="hero-sub reveal-up">
+          Consultoria especializada em crédito com agilidade, transparência e o atendimento humano que você merece.
+        </p>
+        <div class="hero-actions reveal-up">
+          <a href="https://wa.me/5531982954229" class="btn btn-primary btn-glow">
+            <span>Iniciar Atendimento</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#sobre" class="btn btn-ghost">Conheça minha trajetória</a>
+        </div>
+      </div>
+
+      <div class="hero-image-side reveal-up" id="attendant-card">
+        <div class="image-parallax-container">
+          <img src="avatarmasculino.png" alt="Carla - Representante MigDigital" class="carla-main-img">
+          <div class="floating-card experience-card">
+            <span class="card-num">+6</span>
+            <span class="card-label">Anos de <br>Experiência</span>
+          </div>
+          <div class="floating-card trust-card">
+            <div class="card-stars">★★★★★</div>
+            <span class="card-label">Atendimento <br>Premium</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE CARLA -->
+  <section class="sobre-carla" id="sobre">
+    <div class="sobre-container">
+      <div class="sobre-grid">
+        <div class="sobre-content">
+          <span class="section-tag">Trajetória</span>
+          <h2 class="sobre-title">Compromisso com o <br><span class="text-gold">seu crescimento</span></h2>
+          <p class="sobre-text">
+            Como representante comercial da MigDigital, meu objetivo vai além de oferecer crédito. Eu busco entender a necessidade real de cada cliente, proporcionando uma consultoria estratégica que transforma desafios em oportunidades.
+          </p>
+         
+          <div class="sobre-features">
+            <div class="s-feat">
+              <div class="s-icon">🛡️</div>
+              <span>Atendimento Ético</span>
+            </div>
+            <div class="s-feat">
+              <div class="s-icon">⚡</div>
+              <span>Rapidez na Resposta</span>
+            </div>
+            <div class="s-feat">
+              <div class="s-icon">💎</div>
+              <span>Soluções Personalizadas</span>
+            </div>
+          </div>
+        </div>
+        <div class="sobre-visual">
+          <div class="visual-blob"></div>
+          <div class="visual-card">
+            <div class="vc-header">
+              <div class="vc-dot"></div>
+              <div class="vc-dot"></div>
+              <div class="vc-dot"></div>
+            </div>
+            <div class="vc-body">
+              <div class="vc-progress">
+                <div class="vcp-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VANTAGENS -->
+  <section class="beneficios" id="beneficios">
+    <div class="ben-container">
+      <div class="ben-header centered">
+        <div class="centralizarp">
+          <span class="section-tag">Por que escolher Valdmar?</span>
+        </div>
+        <div class="centralizar">
+          <h2 class="ben-title">Excelência em cada <br><span class="text-gold">detalhe</span></h2>
+        </div>
+      </div>
+      <div class="ben-grid">
+        <div class="ben-card">
+          <div class="bc-icon">01</div>
+          <h3>Consultoria Humanizada</h3>
+          <p>Esqueça os robôs. Aqui você fala diretamente com quem entende do assunto.</p>
+        </div>
+        <div class="ben-card featured">
+          <div class="bc-icon">02</div>
+          <h3>Aprovação Ágil</h3>
+          <p>Processos otimizados para que você não perca tempo esperando.</p>
+        </div>
+        <div class="ben-card">
+          <div class="bc-icon">03</div>
+          <h3>Taxas Competitivas</h3>
+          <p>Trabalhamos com as melhores condições do mercado para o seu perfil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURANCA -->
+  <section class="seguranca" id="seguranca">
+    <div class="seg-container">
+      <div class="seg-content reveal-up">
+        <span class="section-tag">Confiança Total</span>
+        <h2 class="seg-title">Sua segurança é nossa <br><span class="text-gold">prioridade</span></h2>
+        <p class="seg-text">Operamos com as tecnologias mais avançadas de proteção de dados, garantindo uma experiência digital 100% protegida e transparente.</p>
+        <div class="seg-grid">
+          <div class="seg-item">
+            <div class="si-icon">🔒</div>
+            <div class="si-text">
+              <h4>Criptografia</h4>
+              <p>Dados protegidos de ponta a ponta.</p>
+            </div>
+          </div>
+          <div class="seg-item">
+            <div class="si-icon">✅</div>
+            <div class="si-text">
+              <h4>Conformidade</h4>
+              <p>Totalmente alinhado à LGPD.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="cta-card reveal-up">
+      <h2 class="cta-title">Vamos impulsionar <br>seus <span class="text-gold">objetivos?</span></h2>
+      <p class="cta-sub">Fale diretamente comigo e receba uma proposta personalizada agora mesmo.</p>
+      <a href="https://wa.me/5531982954229" class="btn btn-primary btn-large btn-glow">
+        <span>Chamar Valdmar no WhatsApp</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contato">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+         <img src="logocarla.png" alt="MIGDIGITAL LOGO" width="150px">
+        </a>
+        <p>Empréstimos com segurança,<br />agilidade e transparência.</p>
+        
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#attendant-card">Whatsapp</a></li>
+          <li><a href="#credibilidade">Segurança</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Política de privacidade</a></li>
+          <li><a href="#">Termos de uso</a></li>
+          <li><a href="#">LGPD</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <p>rafaeladiretora@mefactoring.adm.br</p>
+        <p><a href="https://www.migdigital.net" target="_blank" rel="noopener">www.migdigital.net</a></p>
+        <p>Sete Lagoas, MG</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 MigDigital. Todos os direitos reservados.</p>
+      <div class="footer-logo-space" aria-label="Espaço reservado para logo"></div>
+    </div>
+  </footer>
+
+
+  <!-- CHATBOT -->
+  <div id="chatbot-container">
+    <button id="chatbot-toggle" aria-label="Abrir chat">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <div id="chatbot-window">
+      <div id="chatbot-header">
+        <div class="bot-info">
+          <div class="bot-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v2h-8V8a2 2 0 0 1 2-2h2V4a2 2 0 0 1-2-2zM4 9h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2zm2 4v2h2v-2H6zm10 0v2h2v-2h-2z"/></svg>
+          </div>
+          <div>
+            <h4>MigRobô</h4>
+            <span class="bot-status">Sempre online</span>
+          </div>
+        </div>
+        <button id="chatbot-close" aria-label="Fechar chat">&times;</button>
+      </div>
+      <div id="chatbot-messages">
+        <!-- Messages will be injected here -->
+      </div>
+      <div id="chatbot-options">
+        <!-- Options will be injected here -->
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
