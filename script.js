@@ -199,23 +199,18 @@ window.addEventListener('scroll',()=>{
 
   // ─── Attendants data ─────────────────────────
   const attendants = [
-    { name: 'David Thiago', role: 'Consultor de Crédito', whatsapp: '5531991873155' },
-    { name: 'Carla', role: 'Consultora de Crédito', whatsapp: '5531991873155' },
-    { name: 'Ronaldo', role: 'Consultor de Crédito', whatsapp: '5531991873155' },
-    { name: 'Leonardo', role: 'Consultor de Crédito', whatsapp: '5531991873155' },
-    { name: 'Ana', role: 'Consultora de Crédito', whatsapp: '5531991873155' },
-    { name: 'Everton', role: 'Consultor de Crédito', whatsapp: '5531991873155' },
-    { name: 'Luiz', role: 'Consultor de Crédito', whatsapp: '5531991873155' }
+    { name: 'David Thiago', role: 'Consultor de Crédito', whatsapp: '5531982954229' },
+    { name: 'Carla', role: 'Consultora de Crédito', whatsapp: '5531982954229' },
+    { name: 'Ronaldo', role: 'Consultor de Crédito', whatsapp: '5531982954229' },
+    { name: 'Leonardo', role: 'Consultor de Crédito', whatsapp: '5531982954229' },
+    { name: 'Ana', role: 'Consultora de Crédito', whatsapp: '5531982954229' },
+    { name: 'Everton', role: 'Consultor de Crédito', whatsapp: '5531982954229' },
+    { name: 'Luiz', role: 'Consultor de Crédito', whatsapp: '5531982954229' }
   ];
-
-  const cursorDot  = document.getElementById('cursor-dot');
-  const cursorRing = document.getElementById('cursor-ring');
-  const cursorLabel= document.getElementById('cursor-label');
-  let mx=0,my=0,rx=0,ry=0;
-
 
   // ── LOADER ────────────────────────────────────
 (function initLoader(){
+
   const bar=document.getElementById('loader-bar');
   const pct=document.getElementById('loader-pct');
   const loader=document.getElementById('loader');
@@ -450,7 +445,7 @@ window.addEventListener('scroll',()=>{
 
   const botResponses = {
     start: {
-      text: "Olá! Sou o MigRobô. Como posso te ajudar hoje?",
+      text: "Olá! Seja bem-vindo(a) à Mig Digital Empréstimos. Recebemos sua mensagem e em breve o Valdmar fará seu atendimento.",
       options: [
         { text: "Como funciona?", id: "how_works" },
         { text: "Localização", id: "location" },
@@ -471,11 +466,15 @@ window.addEventListener('scroll',()=>{
       options: [{ text: "Voltar", id: "start" }]
     },
     talk_human: {
-      text: "Vou te encaminhar para um de nossos especialistas no WhatsApp. Só um momento...",
+      text: "Vou te encaminhar para Valdmar no WhatsApp. Só um momento...",
       action: () => {
-        setTimeout(() => {
-          window.open('https://wa.me/5531982954229', '_blank');
-        }, 1000);
+        // Fecha o chatbot para não ficar sobreposto ao modal.
+        chatbotWindow?.classList.remove('open');
+
+        // Abre o modal de cadastro para capturar os dados e enviar ao atendente selecionado.
+        const modal = document.getElementById('lead-modal');
+        modal?.classList.add('open');
+        document.body.style.overflow = 'hidden';
       },
       options: [{ text: "Voltar", id: "start" }]
     }
